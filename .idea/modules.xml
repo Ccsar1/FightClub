@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/FaseCodificacion.iml" filepath="$PROJECT_DIR$/.idea/FaseCodificacion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/practica.iml" filepath="$PROJECT_DIR$/.idea/practica.iml" />
     </modules>
   </component>
 </project>
