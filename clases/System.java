@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * 
  */
-public class System {
+public class System{
 
     /**
      * Default constructor
