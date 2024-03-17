@@ -1,141 +1,178 @@
+package clases;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
+import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.FileReader;
 
-/**
- * 
- */
+
 public class DataBaseManager {
-
-    /**
-     * Default constructor
-     */
-    public DataBaseManager() {
+    public static void setPlayer(List<Player> usuario, String nombreArchivo) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo,true))) {
+            for (int i=0; i < usuario.size(); i++) {
+                Player user= usuario.get(i);
+                String linea = String.format("%s,%s,%s,%s", user.getName(), user.getNick(), user.getPassword(), user.getRegister_number());
+                if (i<usuario.size()-1){
+                    linea+= ",";
+                }
+                writer.write(linea);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static List<Player> getPlayers(String nombreArchivo) {
+        List<Player> users = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(nombreArchivo))) {
+            String linea;
+            while ((linea = reader.readLine()) != null) {
+                String[] data = linea.split(",");
+                String name = data[0];
+                String nick = data[1];
+                String password = data[2];
+                String register_number = data[3];
+                users.add(new User(name,nick,password,register_number));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return users;
     }
 
-    /**
-     * 
-     */
-    private Character [0..*] charDB;
-
-    /**
-     * 
-     */
-    private Fight [0..*] fightDB;
-
-    /**
-     * 
-     */
-    private Users [0..*] userDB;
-
-    /**
-     * 
-     */
-    private Equipment [0..*] equipmentDB;
-
-    /**
-     * 
-     */
-    private Challenge [0..*] challengeDB;
-
-    /**
-     * @return
-     */
-    public Character [0..*] getCharDB() {
-        // TODO implement here
-        return null;
+    public static void setOperator(List<User> usuario, String nombreArchivo) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo,true))) {
+            for (int i=0; i < usuario.size(); i++) {
+                User user= usuario.get(i);
+                String linea = String.format("%s,%s,%s,%s", user.getName(), user.getNick(), user.getPassword(), user.getRegister_number());
+                if (i<usuario.size()-1){
+                    linea+= ",";
+                }
+                writer.write(linea);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static List<User> getOperator(String nombreArchivo) {
+        List<User> users = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(nombreArchivo))) {
+            String linea;
+            while ((linea = reader.readLine()) != null) {
+                String[] data = linea.split(",");
+                String name = data[0];
+                String nick = data[1];
+                String password = data[2];
+                String register_number = data[3];
+                users.add(new User(name,nick,password,register_number));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return users;
     }
 
-    /**
-     * @param Character [0..*]
-     */
-    public void setCharDB(void Character [0..*]) {
-        // TODO implement here
+    public static void setFight(List<User> usuario, String nombreArchivo) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo,true))) {
+            for (int i=0; i < usuario.size(); i++) {
+                User user= usuario.get(i);
+                String linea = String.format("%s,%s,%s,%s", user.getName(), user.getNick(), user.getPassword(), user.getRegister_number());
+                if (i<usuario.size()-1){
+                    linea+= ",";
+                }
+                writer.write(linea);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static List<User> getFight(String nombreArchivo) {
+        List<User> users = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(nombreArchivo))) {
+            String linea;
+            while ((linea = reader.readLine()) != null) {
+                String[] data = linea.split(",");
+                String name = data[0];
+                String nick = data[1];
+                String password = data[2];
+                String register_number = data[3];
+                users.add(new User(name,nick,password,register_number));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return users;
     }
 
-    /**
-     * @return
-     */
-    public Fight [0..*] getFightDB() {
-        // TODO implement here
-        return null;
+    public static void setChallenge(List<User> usuario, String nombreArchivo) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo,true))) {
+            for (int i=0; i < usuario.size(); i++) {
+                User user= usuario.get(i);
+                String linea = String.format("%s,%s,%s,%s", user.getName(), user.getNick(), user.getPassword(), user.getRegister_number());
+                if (i<usuario.size()-1){
+                    linea+= ",";
+                }
+                writer.write(linea);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static List<User> getChallenges(String nombreArchivo) {
+        List<User> users = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(nombreArchivo))) {
+            String linea;
+            while ((linea = reader.readLine()) != null) {
+                String[] data = linea.split(",");
+                String name = data[0];
+                String nick = data[1];
+                String password = data[2];
+                String register_number = data[3];
+                users.add(new User(name,nick,password,register_number));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return users;
     }
 
-    /**
-     * @param Fight[0..*]
-     */
-    public void setFightDB(void Fight[0..*]) {
-        // TODO implement here
+    public static void setCharacter(List<User> usuario, String nombreArchivo) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo,true))) {
+            for (int i=0; i < usuario.size(); i++) {
+                User user= usuario.get(i);
+                String linea = String.format("%s,%s,%s,%s", user.getName(), user.getNick(), user.getPassword(), user.getRegister_number());
+                if (i<usuario.size()-1){
+                    linea+= ",";
+                }
+                writer.write(linea);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-
-    /**
-     * @return
-     */
-    public User [0..*] getUserDB() {
-        // TODO implement here
-        return null;
-    }
-
-    /**
-     * @param User[0..*]
-     */
-    public void setUserDB(void User[0..*]) {
-        // TODO implement here
-    }
-
-    /**
-     * @return
-     */
-    public Equipment [0..*] getEquipmentDB() {
-        // TODO implement here
-        return null;
-    }
-
-    /**
-     * @param Equipment[0..*]
-     */
-    public void setEquipmentDB(void Equipment[0..*]) {
-        // TODO implement here
-    }
-
-    /**
-     * @return
-     */
-    public Challenge [0..*] getChallengeDB() {
-        // TODO implement here
-        return null;
-    }
-
-    /**
-     * @param Challenge [0..*]
-     */
-    public void setChallengeDB(void Challenge [0..*]) {
-        // TODO implement here
-    }
-
-    /**
-     * @param player 
-     * @return
-     */
-    public boolean checkValidatedChallenge(Player player) {
-        // TODO implement here
-        return false;
-    }
-
-    /**
-     * @param player 
-     * @return
-     */
-    public Challenge getValidatedChallenge(Player player) {
-        // TODO implement here
-        return null;
-    }
-
-    /**
-     * @param fight
-     */
-    public void addFight(Fight fight) {
-        // TODO implement here
+    public static List<User> getCharacters(String nombreArchivo) {
+        List<User> users = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(nombreArchivo))) {
+            String linea;
+            while ((linea = reader.readLine()) != null) {
+                String[] data = linea.split(",");
+                String name = data[0];
+                String nick = data[1];
+                String password = data[2];
+                String register_number = data[3];
+                users.add(new User(name,nick,password,register_number));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return users;
     }
 
 }

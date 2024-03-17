@@ -51,4 +51,5 @@ public abstract class SpecialAbility {
     public TAbility getTypeAbility(){
         return this.typeAbility;
     }
+    public abstract void execute();
 }
